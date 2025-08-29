@@ -80,7 +80,7 @@ fun findYoungestAndOldest() {
 //    findYoungestAndOldest()
 //}
 
-fun main() {
+fun main1() {
     var a = 1
 // simple name in template:
     val s1 = "a is $a"
@@ -90,39 +90,104 @@ fun main() {
     val s2 = "${s1.replace("is", "was")}, but now is $a"
     println(s2)
 
-    for ( index in internAndroidDevelopers.indices){
+    for (index in internAndroidDevelopers.indices) {
         println(" ${index} ${internAndroidDevelopers[index]}")
     }
 
     val x = 10
-    val y=9
-    if( x in 2 ..y+1){
+    val y = 9
+    if (x in 2..y + 1) {
         println("fits in range")
     }
 
-    for (i in 1..10 step 2){
+    for (i in 1..10 step 2) {
         println(i)
     }
-    for (i in 10 downTo 0 step 2){
+    for (i in 10 downTo 0 step 2) {
         println(i)
     }
 
-    val fruits:List<String> =  listOf("banana","avocado","apple","kiwifruit","orange")
-    val myFruitIndex = Random(fruits.size).nextInt()
-     when(fruits[myFruitIndex]){
-         "banana" -> println("banana is good")
-         "avocado" -> println("avocado is good")
-         "apple" -> println("apple is good")
-         "kiwifruit" -> println("kiwifruit is good")
-         "orange" -> println("orange is good")
-     }
+    val fruits: List<String> = listOf("banana", "avocado", "apple", "kiwifruit", "orange")
+    val myFruitIndex = Random.nextInt(fruits.size)
+    when (fruits[myFruitIndex]) {
+        "banana" -> println("banana is good")
+        "avocado" -> println("avocado is good")
+        "apple" -> println("apple is good")
+        "kiwifruit" -> println("kiwifruit is good")
+        "orange" -> println("orange is good")
+    }
     fruits
         .filter { it.startsWith("a") }
         .sortedBy { it }
         .map { it.uppercase() }
         .forEach { println(it) }
+
+    val name = "Eco mobile"
+    println(name.splitString())
+
 }
 
 
+fun union(a: List<Int>, b: List<Int>) {
+    val set1 = a.toSet()
+    val set2: MutableSet<Int> = b.toMutableSet()
+    set2.add(10)
+    val union = set1.union(set2)
+    println(union)
+}
+
+fun frequencyCounter(a: List<Int>) {
+    val map = mutableMapOf<Int, Int>()
+    a.forEach {
+        map[it] = (map[it] ?: 0) + 1
+    }
+    for ((key, value) in map) {
+        println("$key -> $value")
+    }
+}
+
+fun MutableList<Int>.swap(index1: Int, index2: Int) {
+    if (index1 !in this.indices || index2 !in this.indices) {
+        println("Invalid index")
+        return
+    }
+    val tmp = this[index1]
+    this[index1] = this[index2]
+    this[index2] = tmp
+}
+
+// Generic function
+fun <T> add(a: T, b: T): String {
+    return a.toString() + b.toString()
+}
+
+fun main() {
+    val list = mutableListOf(1, 2, 3, 4, 2, 3, 2, 4, 1, 3, 2, 3)
+    list.swap(0, 6)
+    println(list.reversed())
+    frequencyCounter(list)
+
+    val a: MutableMap<String, Int> = mutableMapOf("Phuc" to 3, "Huu" to 2, "Thai" to 1)
+    println(a.toSortedMap())
+    var b: MutableMap<Int, String> = mutableMapOf()
+    a.forEach { (key, value) ->
+        b[value] = key
+    }
+    b = b.toSortedMap()
+    for ((key, value) in b) {
+        print(b[key] + " ")
+    }
+    println()
+    println(add(1, 2))
+
+    val pair = Pair("Phuc",209)
+    println(pair)
+}
+
+class Pair<K, V>(val first: K, val second: V) {
+    override fun toString(): String {
+        return "($first,$second)"
+    }
+}
 
 
