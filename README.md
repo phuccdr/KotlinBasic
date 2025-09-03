@@ -46,7 +46,7 @@ Singleton & Companion Object
 
 
 
-Collections
+**Collections**
 
 The Kotlin Standard Library provides implementations for basic collection types: sets, lists, and maps. A pair of interfaces represent each collection type:
 
