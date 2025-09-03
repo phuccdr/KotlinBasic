@@ -124,8 +124,6 @@ fun main1() {
         .forEach { println(it) }
 
     val name = "Eco mobile"
-    println(name.splitString())
-
 }
 
 
@@ -158,8 +156,6 @@ fun main() {
         print(b[key] + " ")
     }
     println()
-    println(add(1, 2))
-
     val pair = Pair("Phuc",209)
     println(pair)
 }

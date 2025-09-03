@@ -181,7 +181,7 @@ fun showAllList() {
  * **/
 
 
-fun syntaxForCollections(a:Collection<Int>, b:Collection<Int>){
+fun syntaxForCollections(a: Collection<Int>, b: Collection<Int>) {
     println(a.union(b))
     println(a.intersect(b))
     println(a.subtract(b))
@@ -190,6 +190,11 @@ fun syntaxForCollections(a:Collection<Int>, b:Collection<Int>){
     println(a.isEmpty())
     println(a.size)
     println(a.iterator())
+
+    val iterator = a.iterator()
+    while (iterator.hasNext()) {
+        println(iterator.next())
+    }
 }
 
 fun printlnAll(a: Collection<String>) {
@@ -258,30 +263,7 @@ fun chooseFruits(fruits: List<String>): List<String> {
 }
 
 
-
-
-
 /**  Hàm & Extension Function **/
-
-fun String.normalize(): String {
-    return this.trim().lowercase()
-}
-
-// Extension function
-fun MutableList<Int>.swap(index1: Int, index2: Int) {
-    if (index1 !in this.indices || index2 !in this.indices) {
-        println("Invalid index")
-        return
-    }
-    val tmp = this[index1]
-    this[index1] = this[index2]
-    this[index2] = tmp
-}
-
-// Generic function
-fun <T> add(a: T, b: T): String {
-    return a.toString() + b.toString()
-}
 
 // Default Parameter
 fun printHelloMessage(name: String = "Eco Mobile") {
@@ -291,18 +273,9 @@ fun printHelloMessage(name: String = "Eco Mobile") {
 fun sum2(a: Int, b: Int) = a + b
 
 
-/** Null Safety **/
-fun safetyNormalizeName(name: String?): String {
-    var result: String? = null
-    name?.let {
-        result = normalizeName(name)
-    }
-    return result ?: "Phuc Thai Van"
-}
-
 fun main() {
-//    println(normalizeName("   pHuc ThaI huu  "))
-//    showMutilineString()
-val a : Collection<Int> = listOf(1,2,3)
+    println(normalizeName("   pHuc ThaI huu  "))
+    showMutilineString()
+    val a: Collection<Int> = listOf(1, 2, 3)
     println(a.iterator())
 }
