@@ -1,6 +1,7 @@
 package com.wd.kotlin_basic
 
 import kotlin.random.Random
+import kotlin.math.sqrt
 
 private const val TAG = "Kotlin_Basic"
 private val internAndroidDevelopers: List<InternAndroidDeveloper> = listOf(
@@ -136,30 +137,9 @@ fun union(a: List<Int>, b: List<Int>) {
     println(union)
 }
 
-fun frequencyCounter(a: List<Int>) {
-    val map = mutableMapOf<Int, Int>()
-    a.forEach {
-        map[it] = (map[it] ?: 0) + 1
-    }
-    for ((key, value) in map) {
-        println("$key -> $value")
-    }
-}
 
-fun MutableList<Int>.swap(index1: Int, index2: Int) {
-    if (index1 !in this.indices || index2 !in this.indices) {
-        println("Invalid index")
-        return
-    }
-    val tmp = this[index1]
-    this[index1] = this[index2]
-    this[index2] = tmp
-}
 
-// Generic function
-fun <T> add(a: T, b: T): String {
-    return a.toString() + b.toString()
-}
+
 
 fun main() {
     val list = mutableListOf(1, 2, 3, 4, 2, 3, 2, 4, 1, 3, 2, 3)
@@ -189,5 +169,30 @@ class Pair<K, V>(val first: K, val second: V) {
         return "($first,$second)"
     }
 }
+object Darts {
+    fun score(x: Double, y: Double): Int {
+        val distance:Double = sqrt(x*x+y*y)
+        var result:Int= 0
+        when{
+            distance<=1.0 ->{
+                result = 10
+            }
+            distance<=5.0 ->{
+                result = 5
+            }
+            distance<=10.0 ->{
+                result = 1
+            }
+        }
+        return result
+    }
+}
+
+
+fun test1(){
+    val x:Char='a'
+    val str = x.lowercaseChar()
+}
+
 
 
