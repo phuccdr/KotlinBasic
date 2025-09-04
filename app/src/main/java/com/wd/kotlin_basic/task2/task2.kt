@@ -1,5 +1,6 @@
-package com.wd.kotlin_basic
+package com.wd.kotlin_basic.task2
 
+import com.wd.kotlin_basic.task1.normalizeName
 import java.util.UUID
 
 /**Functions **/
