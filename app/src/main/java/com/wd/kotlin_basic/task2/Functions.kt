@@ -61,7 +61,7 @@ fun <T> clickItem(vararg categories: T) {
  * **/
 fun loadState(state: String?) {
     state?.let {
-        println("state already loaded")
+        println("State already loaded")
     }
 }
 
@@ -69,7 +69,7 @@ fun loadState(state: String?) {
 fun changeUserName(newName: String) {
     newName.run {
         val name = normalizeName(name = this)
-        println("new name is $name")
+        println("New name is $name")
     }
     println(newName)
 }
@@ -97,7 +97,6 @@ fun changeCategory2(category: Category) {
         click()
     }
 }
-
 
 fun main() {
     val category = Category("Life", "Family", 0xff0010)

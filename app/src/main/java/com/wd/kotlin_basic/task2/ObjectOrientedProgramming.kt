@@ -4,13 +4,15 @@ import java.util.UUID
 
 /** ObjectOrientedProgramming **/
 
+/** Class
+ * lazy initialization
+ * **/
 class Person(
     val firstName: String = "firstName",
     val lastName: String = "lastName",
     val isEmployeed: Boolean = false,
     val laptops: MutableList<Laptop> = mutableListOf()
 ) {
-
     val isAndroidDeveloper by lazy {
         studyKotlin()
         true
@@ -25,13 +27,16 @@ class Person(
     }
 }
 
+/** Abstract class **/
 abstract class Equipment {
     abstract var name: String
     abstract var manufacturer: String
     abstract fun guarantee()
 }
 
-/** Secondary constructors **/
+/** Secondary constructors
+ * override function and properties
+ * **/
 class Laptop : Equipment {
     private var owner: Person = Person()
     override var name: String = "Vostro:))"
@@ -55,14 +60,14 @@ class Laptop : Equipment {
 }
 
 
-/** interface **/
+/** Interface **/
 interface tryHard {
     fun tryHard() {
         println("Try your best")
     }
 }
 
-/** parent class **/
+/** Open class **/
 open class Employee() : tryHard {
     private val id = UUID.randomUUID().toString()
     private val name: String? = null
@@ -94,9 +99,40 @@ class AndroidDeveloper() : Employee() {
 
 }
 
+/** Data class **/
+data class File(val name: String, val size: Int, val path: String) {
+    override fun toString(): String {
+        return "File(name='$name', size=$size, path='$path')"
+    }
+}
+
+/** Companion object **/
+class Circle(val radius: Double) {
+    companion object {
+        fun create(radius: Double): Circle {
+            return Circle(radius)
+        }
+    }
+}
+
+/** Object declarations **/
+/** Object **/
+object CacheData {
+    val data = hashSetOf("kotlin")
+    fun checkContain(value: String): Boolean {
+        return data.contains(value)
+    }
+}
+
+/** Object expressions **/
+interface Drag {
+    fun dragging()
+}
+
 
 fun main() {
-    showHelloMessage(null, "Eco Mobile")
+
+    /** Class **/
     val phuc = Person("Phuc", "Thai Huu", true)
     println(phuc)
     println(phuc.isAndroidDeveloper)
@@ -109,4 +145,25 @@ fun main() {
     androidDeveloper.work()
     androidDeveloper.tryHard()
     phuc.laptops.first().guarantee()
+
+    val file = File("Mua do", 5, "D:/")
+    println(file)
+
+    /** object declaration **/
+    val cacheData = CacheData.data.add("Java")
+    println(cacheData)
+    println(CacheData.checkContain("Kotlin"))
+
+    /** object expression **/
+    val finger = object : Drag {
+        override fun dragging() {
+            println("Dragging")
+        }
+    }
+    finger.dragging()
+
+    /** Companion object **/
+    val circle = Circle.create(5.0)
+    println(circle.radius)
+
 }

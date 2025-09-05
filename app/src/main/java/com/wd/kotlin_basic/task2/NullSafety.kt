@@ -36,6 +36,7 @@ fun safetyNormalizeName(name: String?): String {
 }
 
 fun main() {
+    showHelloMessage(null, "Eco Mobile")
     println(safetyNormalizeName(null))
 }
 

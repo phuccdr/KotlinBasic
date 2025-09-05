@@ -66,8 +66,6 @@ class Triangle<out T : Number>(val a: Number, val b: Number, val c: Number) {
 
 fun twofer(name: String ="you"): String = "One for $name, one for me."
 
-
-
 fun main() {
     println(twofer("Phuc"))
 }
