@@ -5,7 +5,7 @@ package com.wd.kotlin_basic.task1
 
 /** if else **/
 fun checkPassword(password: String, confirmPassword: String): Boolean {
-    if (!password.equals(confirmPassword) || password.length < 8) return false
+    if (!password.equals(confirmPassword) || password.length < 8){ return false}
     return false
 }
 
@@ -52,7 +52,9 @@ fun printlnFruits(fruits: List<String>) {
 
 /** while**/
 fun convertDecimalToBinary(a: Int): String? {
-    if (a <= 0) return null
+    if (a <= 0) {
+        return null
+    }
     var number = a
     val arrBinary: MutableList<Int> = mutableListOf()
     while (number > 0) {

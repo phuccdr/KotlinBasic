@@ -32,10 +32,16 @@ fun calculator(a: Double, b: Double) {
     println("a%b = ${a % b}")
     println("a^b = ${pow(a, b)}")
     println("a.toInt() = ${a.toInt()}")
-    if (a == b) println("a==b")
-    else if (a > b) println("a>b")
-    else println("a<b")
-    if (a > 0 && b > 0) println("a,b > 0")
+    if (a == b) {
+        println("a==b")
+    } else if (a > b) {
+        println("a>b")
+    } else {
+        println("a<b")
+    }
+    if (a > 0 && b > 0) {
+        println("a,b > 0")
+    }
 }
 
 fun compareInt(a: String, b: String): Boolean {
