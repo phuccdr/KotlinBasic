@@ -103,14 +103,7 @@ fun showMutilineString() {
 }
 
 /**  Hàm & Extension Function **/
-
-// Default Parameter
-fun printHelloMessage(name: String = "Eco Mobile") {
-    println("Hello $name")
-}
-
 fun sum2(a: Int, b: Int) = a + b
-
 
 fun main() {
     println(normalizeName("   pHuc ThaI huu  "))

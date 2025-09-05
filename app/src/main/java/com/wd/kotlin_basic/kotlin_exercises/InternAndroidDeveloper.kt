@@ -1,4 +1,4 @@
-package com.wd.kotlin_basic.task2
+package com.wd.kotlin_basic.kotlin_exercises
 
 data class InternAndroidDeveloper(
     val name: String,

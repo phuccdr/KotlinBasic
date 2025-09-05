@@ -1,75 +1,8 @@
 package com.wd.kotlin_basic.task2
 
-import com.wd.kotlin_basic.task1.normalizeName
 import java.util.UUID
 
-/**Functions **/
-fun diff(a: Int, b: Int): Int {
-    return a - b
-}
-
-/** Extension function **/
-fun MutableList<Int>.swap(index1: Int, index2: Int) {
-    if (index1 !in this.indices || index2 !in this.indices) {
-        println("Invalid index")
-        return
-    }
-    val tmp = this[index1]
-    this[index1] = this[index2]
-    this[index2] = tmp
-}
-
-fun String.normalizeName2(name: String): String {
-    return name.trim().lowercase().split(" ").map {
-        it.substring(0, 1).uppercase() + it.substring(1)
-    }.joinToString(separator = " ")
-}
-
-/** Generic function **/
-fun <T> compare(a: T, b: T): Boolean {
-    return a == b
-}
-
-/**Single-expression functions **/
-fun sum(a: Int, b: Int) = a + b
-
-/**Default Argument Values and Named Arguments **/
-fun createHelloKotlinMessage(name: String = "Phuc :)"): String {
-    return "Hello $name"
-}
-
-
-/**Null Safety**/
-fun createHelloMessage(name: String?): String? {
-    if (name.isNullOrEmpty()) return null
-    return "Hello $name"
-}
-
-fun createHelloMessageSafeCall(name: String?): String {
-    return createHelloMessage(name) ?: "Hello Kotlin"
-}
-
-fun showHelloMessage(name: String?, companyName: String?) {
-    try {
-        if (name.isNullOrEmpty()) {
-            println(" your name is empty")
-        }
-        val helloMessage = createHelloMessageSafeCall(name) + " " + companyName!!
-        println(helloMessage)
-    } catch (e: Exception) {
-        println(e.message)
-    }
-}
-
-fun safetyNormalizeName(name: String?): String {
-    var result: String? = null
-    name?.let {
-        result = normalizeName(name)
-    }
-    return result ?: "Phuc Thai Van"
-}
-
-/**OOP **/
+/** ObjectOrientedProgramming **/
 
 class Person(
     val firstName: String = "firstName",
@@ -95,10 +28,10 @@ class Person(
 abstract class Equipment {
     abstract var name: String
     abstract var manufacturer: String
-
     abstract fun guarantee()
 }
 
+/** Secondary constructors **/
 class Laptop : Equipment {
     private var owner: Person = Person()
     override var name: String = "Vostro:))"
@@ -121,17 +54,19 @@ class Laptop : Equipment {
     }
 }
 
+
+/** interface **/
 interface tryHard {
     fun tryHard() {
         println("Try your best")
     }
 }
 
+/** parent class **/
 open class Employee() : tryHard {
     private val id = UUID.randomUUID().toString()
     private val name: String? = null
     private val department: String? = null
-
     open fun work() {
         println("Employee is working")
     }
@@ -159,6 +94,7 @@ class AndroidDeveloper() : Employee() {
 
 }
 
+
 fun main() {
     showHelloMessage(null, "Eco Mobile")
     val phuc = Person("Phuc", "Thai Huu", true)
@@ -174,9 +110,3 @@ fun main() {
     androidDeveloper.tryHard()
     phuc.laptops.first().guarantee()
 }
-
-
-
-
-
-

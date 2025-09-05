@@ -1,4 +1,4 @@
-package com.wd.kotlin_basic.task2
+package com.wd.kotlin_basic.kotlin_exercises
 
 fun translate(rna: String?): List<String> ?{
     require(!rna.isNullOrBlank() && rna.all { it.isLetter() })
@@ -63,7 +63,12 @@ class Triangle<out T : Number>(val a: Number, val b: Number, val c: Number) {
     val isScalene: Boolean = !isEquilateral &&!isIsosceles
 }
 
+
+fun twofer(name: String ="you"): String = "One for $name, one for me."
+
+
+
 fun main() {
-    println(SumOfMultiples.sum(setOf(3, 5), 20))
+    println(twofer("Phuc"))
 }
 

@@ -1,6 +1,7 @@
-package com.wd.kotlin_basic.task2
+package com.wd.kotlin_basic.kotlin_exercises
 
 import com.wd.kotlin_basic.task1.frequencyCounter
+import com.wd.kotlin_basic.task2.swap
 import kotlin.random.Random
 import kotlin.math.sqrt
 
