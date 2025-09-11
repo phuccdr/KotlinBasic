@@ -1,4 +1,5 @@
-package com.wd.kotlin_basic.migrateToKotlin;
+package com.wd.kotlin_basic.migratetokotlin.test;
+
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ValueAnimator;
@@ -31,15 +32,13 @@ import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import androidx.core.view.MotionEventCompat;
 
-//import com.eco.textonphoto.analystic.AnalyticsManager;
-//import com.eco.textonphoto.analystic.Event;
-//import com.eco.textonphoto.R;
-//import com.eco.textonphoto.model.StickerEvent;
-//import com.eco.textonphoto.util.HawkHelper;
-//
-//import org.greenrobot.eventbus.EventBus;
+import com.eco.textonphoto.analystic.AnalyticsManager;
+import com.eco.textonphoto.analystic.Event;
+import com.eco.textonphoto.R;
+import com.eco.textonphoto.model.StickerEvent;
+import com.eco.textonphoto.util.HawkHelper;
 
-import com.wd.kotlin_basic.R;
+import org.greenrobot.eventbus.EventBus;
 
 import java.io.File;
 import java.io.IOException;
@@ -473,9 +472,9 @@ public class StickerView extends RelativeLayout {
         stickerRect.bottom = middlePointY + leftBound;
 
         //if (leftBound <= 30) {
-        // stickerRect.top -= 15;
-        // stickerRect.bottom += 15;
-        // }
+           // stickerRect.top -= 15;
+           // stickerRect.bottom += 15;
+       // }
         return stickerRect;
     }
 
@@ -530,8 +529,8 @@ public class StickerView extends RelativeLayout {
                     midPoint = calculateMidPoint(event);
 
                     if (handlingSticker != null && isInStickerArea(handlingSticker,
-                            event.getX(1),
-                            event.getY(1)) && findCurrentIconTouched() == null) {
+                                                                   event.getX(1),
+                                                                   event.getY(1)) && findCurrentIconTouched() == null) {
                         currentMode = ActionMode.ZOOM_WITH_TWO_FINGER;
                     }
                     break;

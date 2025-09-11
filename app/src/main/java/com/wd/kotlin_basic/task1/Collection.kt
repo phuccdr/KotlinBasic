@@ -1,5 +1,7 @@
 package com.wd.kotlin_basic.task1
 
+import java.util.Collections
+
 /** 3.Collection (Danh sách dữ liệu)
  * Collection<T> is the root of the collection hierarchy.
  * Collection's inheritors: List and Set.
@@ -18,7 +20,6 @@ fun chooseFruits(fruits: List<String>): List<String> {
         .map { it.uppercase() }
         .sortedBy { it }
 }
-
 
 
 fun syntaxForCollections(a: Collection<Int>, b: Collection<Int>) {
@@ -103,12 +104,13 @@ fun frequencyCounter(a: List<Int>) {
         println("$key -> $value")
     }
 }
+
 fun groupByCaloFruits(fruits: Map<String, Int>): Map<Int, List<String>> {
-    val result : MutableMap<Int, MutableList<String>> = mutableMapOf()
-    fruits.forEach{(key,value) ->
-        if(result.containsKey(value)){
+    val result: MutableMap<Int, MutableList<String>> = mutableMapOf()
+    fruits.forEach { (key, value) ->
+        if (result.containsKey(value)) {
             result[value]?.add(key)
-        }else{
+        } else {
             result[value] = mutableListOf(key)
         }
     }
@@ -118,4 +120,12 @@ fun groupByCaloFruits(fruits: Map<String, Int>): Map<Int, List<String>> {
 
 fun main() {
     syntaxForHashSet()
+    val collection: MutableCollection<String> = mutableListOf("Thai", "Phuc", "Huu")
+    val a: MutableSet<Int> = mutableSetOf(1, 2, 3, 4)
+    val set = setOf(1,2,4,3,3)
+    println(set)
+    val iterator = set.iterator()
+    println(iterator.next())
+    collection.iterator()
+
 }
