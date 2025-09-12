@@ -61,3 +61,7 @@ A mutable interface that extends the corresponding read-only interface with writ
 **Hash Table**
 Hash table is a data structure that maps keys to values using a special function called a hash function. Hash stores the data in an associative manner in an array where each data value has its own unique index.
 ![Hash Table](img.png)
+
+Có thể xảy ra hiện tượng key1 à key2 cùng giá trị khác nhau nhưng khi qua Hash function thì có thể tạo ra index giống nhau  xung đột. Có các kĩ thuật để giải quyết các xung đột đó.
+https://www.geeksforgeeks.org/dsa/collision-resolution-techniques/
+
