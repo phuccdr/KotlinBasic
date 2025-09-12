@@ -56,6 +56,8 @@ A mutable interface that extends the corresponding read-only interface with writ
 
 
 <img width="960" height="576" alt="image" src="https://github.com/user-attachments/assets/c8297b4d-388d-4c47-876a-670acb0852af" />
- **Hash Table**
+ 
+
+**Hash Table**
 Hash table is a data structure that maps keys to values using a special function called a hash function. Hash stores the data in an associative manner in an array where each data value has its own unique index.
 ![Hash Table](img.png)
