@@ -112,8 +112,21 @@ fun showMutilineString() {
 fun sum2(a: Int, b: Int) = a + b
 
 fun main() {
-    println(normalizeName("   pHuc ThaI huu  "))
-    showMutilineString()
-    val a: Collection<Int> = listOf(1, 2, 3)
-    println(a.iterator())
+//    val set :Set<Int> = setOf(0,1,2,6,3,4,4,5)
+//
+//    val iter = set.iterator()
+//    for( i in set){
+//        println(i)
+//    }
+//
+    val mutable = mutableListOf(1, 2, 3)
+    val realOnly: List<Int> = mutable
+    mutable.add(4)
+    println(realOnly) // [1, 2, 3, 4] -> vẫn có thể thay đổi được
+
+//    var a1= listOf(1,2,3)
+//    var b1:MutableList<Int> = a1
+//    a1.add(4)
+//    println(b1)
+
 }
