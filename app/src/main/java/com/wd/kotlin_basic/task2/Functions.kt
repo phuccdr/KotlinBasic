@@ -1,7 +1,6 @@
 package com.wd.kotlin_basic.task2
 
 /**Functions **/
-
 /**Single-expression functions **/
 fun sum(a: Int, b: Int) = a + b
 
@@ -21,8 +20,8 @@ fun MutableList<Int>.swap(index1: Int, index2: Int) {
     this[index2] = tmp
 }
 
-fun String.normalizeName(name: String): String {
-    return name.trim().lowercase().split(" ").map {
+fun String.normalizeName(): String {
+    return this.trim().lowercase().split(" ").map {
         it.substring(0, 1).uppercase() + it.substring(1)
     }.joinToString(separator = " ")
 }
@@ -52,9 +51,7 @@ fun <T> clickItem(vararg categories: T) {
         println(i)
     }
 }
-
 /** Function scope **/
-
 /** Let:
  * Executing a lambda on non-nullable objects and
  * Introducing an expression as a variable in local scope
@@ -68,7 +65,7 @@ fun loadState(state: String?) {
 /** Run: Object configuration and computing the result **/
 fun changeUserName(newName: String) {
     newName.run {
-        val name = normalizeName(name = this)
+        val name = newName.normalizeName()
         println("New name is $name")
     }
     println(newName)
@@ -99,13 +96,13 @@ fun changeCategory2(category: Category) {
 }
 
 fun main() {
-    val category = Category("Life", "Family", 0xff0010)
-    changeCategory(category)
-    changeCategory2(category)
-    println(category)
+//    val category = Category("Life", "Family", 0xff0010)
+//    changeCategory(category)
+//    changeCategory2(category)
+//    println(category)
     code()
-    clickItem("hihi", "Hehe", "HEHE")
-    changeUserName("thai HuU pHuc")
+//    clickItem("hihi", "Hehe", "HEHE")
+//    changeUserName("thai HuU pHuc")
 }
 
 

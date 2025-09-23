@@ -1,7 +1,7 @@
-package com.wd.kotlin_basic.task3
+package com.wd.kotlin_basic.task3.coroutine
 
+import com.wd.kotlin_basic.task3.Result
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.async
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
@@ -19,12 +19,6 @@ fun fetchIcons(): Flow<Result<List<String>>> = flow {
     emit(Result.Loading)
     delay(1000)
     emit(Result.Success(listOf("Hehe", "Hhih", "hahaha")))
-}
-
-suspend fun fetchDescription(): List<String> {
-    delay(1000)
-    println("Fetching description...")
-    return listOf("Android", "Flutter", "Kotlin")
 }
 
 fun main() {
@@ -56,12 +50,6 @@ fun main() {
                 }
             }
         }
-
-        coroutineScope {  }
-        val description = async { fetchDescription() }
-        println(description.await())
-
-
-
+        coroutineScope { }
     }
 }
