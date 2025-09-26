@@ -68,6 +68,5 @@ suspend fun main() {
         println("coroutine 1 is running")
         delay(1000)
         println("coroutine 1 done")
-
     }
 }

@@ -27,7 +27,10 @@ suspend fun insertData() {
 
 /**
  * CoroutineScope.async()
- * Neu can tra ve ket qua thi ta su dung async , await de tra ve ket qua thay vi launch
+ * Neu can tra ve ket qua thi ta su dung async , await de tra ve ket qua thay vi launch.
+ *  Async khac launch 1 diem nua la:
+ *  Launch nếu có exception nó sẽ throw ra ngay lập tức
+ *  Async nếu có exception thì nó sẽ giữ lại đến khi gọi await, nếu không gọi await có thể bị bỏ qua)
  */
 suspend fun fetchData() {
     coroutineScope {
@@ -54,21 +57,19 @@ suspend fun fetchData4() {
             delay(2000)
             listOf(1, 2, 3, 4, 5)
         }
-        launch {
+        val task2 = this.async {
             delay(1000)
-            println("child coroutine is running")
+            listOf(6, 7, 8, 9, 10)
         }
         println(task1.await())
+        println(task2.await())
     }
     println("Fetch Data1 Success")
 }
 
-
-
 /**
- * async khac launch 1 diem nua la:
- *  Launch nếu có exception nó sẽ throw ra ngay lập tức
- *  Async nếu có exception thì nó sẽ giữ lại đến khi gọi await, nếu không gọi await có thể bị bỏ qua)
+ * runBlocking{}
+ * Chay tren main thread
  */
 suspend fun main() {
     insertData()

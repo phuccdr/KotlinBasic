@@ -19,7 +19,6 @@ suspend fun fetchTechnical() {
     println("Fetching Technical...")
     delay(500)
     println(listOf("Java", "C++", "C#"))
-
 }
 
 /**

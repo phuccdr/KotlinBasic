@@ -16,7 +16,6 @@ import kotlinx.coroutines.launch
 
 /**
  * MainScope: Su dung Dispatcher.Main cho cac coroutine va co SupervisorJob.
- * @Suppress("FunctionName")
  * public fun MainScope(): CoroutineScope = ContextScope(SupervisorJob() + Dispatchers.Main)
  * Vi su dung SupervisorJob() nen khi coroutine bi loi khong anh huong den cac coroutine khac.
  */
