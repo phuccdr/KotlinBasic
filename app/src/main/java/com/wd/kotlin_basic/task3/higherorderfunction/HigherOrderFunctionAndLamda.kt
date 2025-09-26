@@ -1,4 +1,4 @@
-package com.wd.kotlin_basic.task3
+package com.wd.kotlin_basic.task3.higherorderfunction
 
 import kotlinx.coroutines.runBlocking
 import kotlin.math.pow

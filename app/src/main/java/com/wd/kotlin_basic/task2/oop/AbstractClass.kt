@@ -3,7 +3,6 @@ package com.wd.kotlin_basic.task2.oop
 /** Secondary constructors
  * override function and properties
  * **/
-
 /** Abstract class
  * class Laptop(
  *     private var owner: Person = Person(),
@@ -31,7 +30,9 @@ abstract class Equipment {
     abstract fun guarantee()
 }
 
-fun main(){
+
+
+fun main() {
     val phuc = Person("Phuc", "Thai Huu", true)
     println(phuc)
     println(phuc.isAndroidDeveloper)

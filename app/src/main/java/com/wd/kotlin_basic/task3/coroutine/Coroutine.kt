@@ -1,6 +1,6 @@
 package com.wd.kotlin_basic.task3.coroutine
 
-import com.wd.kotlin_basic.task3.Result
+import com.wd.kotlin_basic.task3.SealedClass
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.delay
@@ -9,29 +9,29 @@ import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 
-fun fetchDataCategory(): Flow<Result<List<String>>> = flow {
-    emit(Result.Loading)
+fun fetchDataCategory(): Flow<SealedClass<List<String>>> = flow {
+    emit(SealedClass.Loading)
     delay(2000)
-    emit(Result.Success(listOf("Life", "Work", "Study")))
+    emit(SealedClass.Success(listOf("Life", "Work", "Study")))
 }
 
-fun fetchIcons(): Flow<Result<List<String>>> = flow {
-    emit(Result.Loading)
+fun fetchIcons(): Flow<SealedClass<List<String>>> = flow {
+    emit(SealedClass.Loading)
     delay(1000)
-    emit(Result.Success(listOf("Hehe", "Hhih", "hahaha")))
+    emit(SealedClass.Success(listOf("Hehe", "Hhih", "hahaha")))
 }
 
 fun main() {
     runBlocking {
         launch(Dispatchers.IO) {
             fetchDataCategory().collect {
-                if (it is Result.Loading) {
+                if (it is SealedClass.Loading) {
                     println("Loading fetchDataCategory()")
                 }
-                if (it is Result.Success) {
+                if (it is SealedClass.Success) {
                     println(it.data)
                 }
-                if (it is Result.Error) {
+                if (it is SealedClass.Error) {
                     println("Error fetchDataCategory")
                 }
             }
@@ -39,13 +39,13 @@ fun main() {
 
         launch {
             fetchIcons().collect {
-                if (it is Result.Loading) {
+                if (it is SealedClass.Loading) {
                     println("Loading fetchIcons()")
                 }
-                if (it is Result.Success) {
+                if (it is SealedClass.Success) {
                     println(it.data)
                 }
-                if (it is Result.Error) {
+                if (it is SealedClass.Error) {
                     println("Error fetchIcons")
                 }
             }

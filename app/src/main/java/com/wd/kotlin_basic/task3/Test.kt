@@ -3,7 +3,6 @@ package com.wd.kotlin_basic.task3
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
 
 suspend fun connectServer() {
     delay(5000)
@@ -31,8 +30,19 @@ suspend fun performLogin() {
     }
 }
 
+//fun main() {
+//    runBlocking {
+//        performLogin()
+//    }
+//}
+
+class Test(var b:Int){
+    val a: Int get() = b
+
+}
 fun main() {
-    runBlocking {
-        performLogin()
-    }
+    val test = Test(3)
+    println(test.a)
+    test.b = 3
+    println(test.a)
 }
