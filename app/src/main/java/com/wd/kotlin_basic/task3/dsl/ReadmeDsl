@@ -1,0 +1,15 @@
+/**
+ * DSL (domain-specific language) là gi ?
+ * DSL la 1 cach viet code dac biet giup mo ta logic ngan gon de doc, gan voi ngon ngu tu nhien.
+ * Trong kotlin no co cach tinh nang:
+ * +) Lambdas
+ * +) Higher-order functions
+ * +) Extension functions
+ * +) Lambda with receiver
+ * +) Scope functions
+ * +) Builder design pattern
+ * +) Infix notation
+ * +) Operator overloading
+ * +) Inline function
+ * +) Singleton design pattern/ anti_pattern
+ */

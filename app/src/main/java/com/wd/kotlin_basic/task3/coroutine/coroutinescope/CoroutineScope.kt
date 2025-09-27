@@ -1,4 +1,4 @@
-package com.wd.kotlin_basic.task3.coroutine
+package com.wd.kotlin_basic.task3.coroutine.coroutinescope
 
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.GlobalScope

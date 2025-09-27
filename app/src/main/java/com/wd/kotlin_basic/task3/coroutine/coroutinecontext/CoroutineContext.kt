@@ -10,7 +10,7 @@ import kotlinx.coroutines.launch
 
 /**
  * Khi tao 1 coroutine moi bang cach .launch hoac .async no tu dong tao cho minh coroutine context chua e doi tuong duoi:
- * +) Job: Theo doi lifecycle cua coroutine ...
+ * +) Job: Theo doi vong doi (lifecycle) cua coroutine va cho phep su dung structured concurrency
  * +) CoroutineDispatcher: Quyet dinh coroutine chay tren thread loai nao.
  * +) CoroutineExceptionHandle: Xu ly cac exception trong coroutine
  * Job la gi ?
@@ -49,23 +49,33 @@ suspend fun demoChildJob1() {
     job2.join()
 }
 
+
+/**
+ * task1: launch(Job()) tao 1 job moi nen khi scope cancel thi task1 khong bi huy
+ * Nhung trong coroutineScope phai delay(1000) vi sau scope.cancel() khong co delay thi coroutineScope se bi huy
+ * va task1 se khong co thoi gian hoan thanh.
+ */
 suspend fun demoChildJob2() {
     coroutineScope {
         val scope = launch {
+           //task1
             launch(Job()) {
                 println("coroutine 1 is running")
-                delay(100)
+                delay(200)
                 println("coroutine 1 done")
             }
 
+            //task2
             launch {
                 println("coroutine 2 is running")
                 delay(300)
                 println("coroutine 2 done")
             }
         }
-        delay(200)
+        delay(100)
         scope.cancel()
+        delay(1000)
     }
+    println("Coroutine scope is done")
 }
 

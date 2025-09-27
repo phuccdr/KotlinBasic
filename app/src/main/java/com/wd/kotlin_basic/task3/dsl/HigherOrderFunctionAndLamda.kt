@@ -1,4 +1,4 @@
-package com.wd.kotlin_basic.task3.higherorderfunction
+package com.wd.kotlin_basic.task3.dsl
 
 import kotlinx.coroutines.runBlocking
 import kotlin.math.pow
@@ -50,7 +50,7 @@ fun clickButton(enableButton: Boolean, onClickPlayButton: () -> Unit) {
 /**
  * Anonymous Function
  */
-fun convertStringToInt(num: String): Int {
+val anonymousFunction = fun (num: String): Int {
     return num.toIntOrNull() ?: 0
 }
 
@@ -68,12 +68,12 @@ inline fun playVideo(onClickPlayButton: () -> Unit) {
     onClickPlayButton()
 }
 
+
 /**
  * Non-local jump expressions
  * Mot lambda khi inline no duoc chen truc tiep vao code nen co the return duoc
  * Khong return ham bao ngoai duoc khi goi return trong lambda (object) gay loi cho ham ch
  */
-
 inline fun test2(number: Int, onReturn: () -> Boolean) {
     if (number % 2 == 0) {
         onReturn()
