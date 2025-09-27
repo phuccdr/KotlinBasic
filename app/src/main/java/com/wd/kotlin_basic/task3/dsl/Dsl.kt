@@ -60,13 +60,108 @@ fun greetMessage(name: String?) {
 }
 
 /**
- * Builder design pattern
+ * Builder design pattern:
+ * Nham tranh viec nham lan khi tạo 1 object co nhieu thuoc tinh cung kieu.
+ * Tao constructor co cac gia tri mac dinh va tao ham build de set cac thuoc tinh (dung apply)
  */
 
+data class Breakfast(
+    val bread: Boolean,
+    val butter: Boolean,
+    val juice: String,
+    val mainDish: String
+)
+
+class BreakfastBuilder {
+    var bread: Boolean = false
+    var butter: Boolean = false
+    var juice: String = ""
+    var mainDish: String = ""
+
+    fun build() = Breakfast(bread, butter, juice, mainDish)
+
+    fun withBread(bread:Boolean): BreakfastBuilder {
+        this.bread = bread
+        return this
+    }
+}
+
+
+/**
+ * Infix notation: dung ham khong can dau cham va dau ()
+ */
+
+infix fun Int.add(number:Int):Int{
+    return this + number
+}
+
+infix fun String.add(string:String):String{
+    return "$this $string"
+}
+
+/**
+ * Operator overloading: dinh nghia cac toan tu tren doi tuong
+ */
+data class Point(val x:Int,val y:Int){
+    operator fun plus(point: Point):Point{
+        return Point(x+point.x,y+point.y)
+    }
+}
+
+/**
+ * Inline function: ham inline chen code truc tiep vao code ham bao ngoai
+ */
+
+inline fun onButtonClick(onClick:()->Unit, isEnable:Boolean){
+    if(isEnable){
+        onClick()
+    }else{
+        println("Button is disable")
+    }
+}
+
+/**
+ * Singleton design pattern/antipattern: Dung object de tao ra 1 doi tuong duy nhat trong toan bo app.
+ * Tranh lam dung dùng singleton gay ton bo nho.
+ */
+
+object Database{
+    fun connect(){
+        println("Connected database")
+    }
+}
 
 
 fun main(){
     greetMessage("THAI huU  Phuc  ")
+
+    val breakfast:Breakfast = BreakfastBuilder().apply {
+        bread = true
+        butter = true
+        juice = "Orange juice"
+        mainDish = "Eggs"
+    }.build()
+
+    val breakfast2 = BreakfastBuilder().withBread(true).build()
+    println(breakfast)
+    println(breakfast2)
+
+    val a=2
+    println(a add 2)
+    val string1 = "Toi"
+    val string2 = "la toi"
+    println(string1 add string2)
+
+    val point1 = Point(1,2)
+    val point2 = Point(3,4)
+
+    val point3 = point1 + point2
+    println(point3)
+
+    onButtonClick(onClick = { println("Click") },true)
+
+    Database.connect()
+
 }
 
 
