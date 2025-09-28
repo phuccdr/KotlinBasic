@@ -30,7 +30,6 @@ suspend fun fetchData3() {
     println("Child Coroutine FetchData1")
 }
 
-
 @OptIn(DelicateCoroutinesApi::class)
 suspend fun main() {
     coroutineScope {

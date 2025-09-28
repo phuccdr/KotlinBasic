@@ -2,11 +2,13 @@ package com.wd.kotlin_basic.task3.coroutine
 
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.wd.kotlin_basic.R
+import com.wd.kotlin_basic.task3.dsl.customButton
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
@@ -30,6 +32,16 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        // DSL customview
+        customButton {
+            text = "Phuc"
+            cornerRadius = 32f
+            bgColor = android.graphics.Color.parseColor("#FF0000")
+            onClick {
+                Toast.makeText(this@MainActivity, "Click", Toast.LENGTH_SHORT).show()
+            }
+        }
+
         mainScope.launch {
             drawUI()
         }

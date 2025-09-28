@@ -1,7 +1,15 @@
 package com.wd.kotlin_basic.task3.dsl
 
+import android.content.Context
+import android.graphics.Color
+import android.graphics.drawable.GradientDrawable
+import android.util.AttributeSet
+import android.view.ViewGroup
+import androidx.appcompat.widget.AppCompatButton
+
+
 /**
- * DSL (domain-specific language) là gi ?
+ * DSL (domain-specific language) là gi ? Thuong dung trong custom view
  * DSL la 1 cach viet code dac biet giup mo ta logic ngan gon de doc, gan voi ngon ngu tu nhien.
  * Trong kotlin no co cach tinh nang:
  * +) Lambdas
@@ -14,6 +22,75 @@ package com.wd.kotlin_basic.task3.dsl
  * +) Inline function
  * +) Singleton design pattern/ anti_pattern
  */
+/**
+ * vi du dung DSL de customView
+ */
+
+class CustomButton @JvmOverloads constructor(
+    context:Context,
+    attrs:AttributeSet?=null,
+    defStyleAttr:Int = android.R.attr.buttonStyle
+):AppCompatButton(context,attrs,defStyleAttr){
+    var cornerRadius:Float = 20f
+        set(value){
+            field = value
+            invalidate()
+        }
+    var bgColor:Int = Color.parseColor("#000000")
+        set(value){
+            field = value
+            updateBackground()
+        }
+
+
+    private fun updateBackground(){
+        val shape = GradientDrawable().apply{
+            cornerRadius = this@CustomButton.cornerRadius
+            setColor(this@CustomButton.bgColor)
+        }
+        background = shape
+    }
+}
+
+class CustomButtonBuilder(private val context:Context){
+    var text:String = "Button default"
+    val textSize :Float = 16f
+    var bgColor:Int = Color.parseColor("#000000")
+    var cornerRadius: Float = 20f
+    private var onClick:(()->Unit)?=null
+
+    fun onClick(listener:()->Unit){
+        onClick = listener
+    }
+
+    fun setBackGroundColor(color:Int){
+        bgColor = color
+    }
+
+    fun build():CustomButton = CustomButton(context).apply{
+        text = this@CustomButtonBuilder.text
+        textSize = this@CustomButtonBuilder.textSize
+        bgColor = this@CustomButtonBuilder.bgColor
+        cornerRadius = this@CustomButtonBuilder.cornerRadius
+        setOnClickListener { onClick?.invoke() }
+
+
+        layoutParams = ViewGroup.MarginLayoutParams(
+            ViewGroup.LayoutParams.WRAP_CONTENT,
+            ViewGroup.LayoutParams.WRAP_CONTENT
+        ).apply {
+            setMargins(16, 16, 16, 16)
+        }
+    }
+
+}
+
+fun Context.customButton(block: CustomButtonBuilder.() -> Unit): CustomButton {
+    return CustomButtonBuilder(this).apply(block).build()
+}
+
+
+
 /**
  * Extension function
  */
@@ -133,6 +210,8 @@ object Database{
 
 
 fun main(){
+   
+
     greetMessage("THAI huU  Phuc  ")
 
     val breakfast:Breakfast = BreakfastBuilder().apply {

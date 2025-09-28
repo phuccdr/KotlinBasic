@@ -21,9 +21,9 @@ fun MutableList<Int>.swap(index1: Int, index2: Int) {
 }
 
 fun String.normalizeName(): String {
-    return this.trim().lowercase().split(" ").map {
+    return this.trim().lowercase().split(" ").joinToString(separator = " ") {
         it.substring(0, 1).uppercase() + it.substring(1)
-    }.joinToString(separator = " ")
+    }
 }
 
 /** Generic function **/
@@ -71,7 +71,7 @@ fun changeUserName(newName: String) {
     println(newName)
 }
 
-class Category(var name: String, var topic: String, var color: Int, var counterClick: Int = 0) {
+class Category(var name: String, var topic: String, var color: Int, private var counterClick: Int = 0) {
     fun click() {
         counterClick++
     }
@@ -96,13 +96,19 @@ fun changeCategory2(category: Category) {
 }
 
 fun main() {
-//    val category = Category("Life", "Family", 0xff0010)
-//    changeCategory(category)
-//    changeCategory2(category)
-//    println(category)
+    val category = Category("Life", "Family", 0xff0010)
+    changeCategory(category)
+    changeCategory2(category)
+    println(category)
     code()
-//    clickItem("hihi", "Hehe", "HEHE")
-//    changeUserName("thai HuU pHuc")
+    clickItem("hihi", "Hehe", "HEHE")
+    changeUserName("thai HuU pHuc")
+
+    println(sum(1,2))
+    println(createHelloKotlinMessage())
+    println(compare("String","String"))
+
+    loadState("loading")
 }
 
 
