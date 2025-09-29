@@ -1,70 +1,58 @@
-Repo dùng để luyện tập kiến thức kotlin basic
+# Kotlin Basic Learning Repository
 
-1. Cú pháp cơ bản của Kotlin
-   Biến & Hằng số
-   Kiểu dữ liệu (Int, Float, Boolean, String, Char, Double, Long)
-   Toán tử (+, -, *, /, %, +=, -=, ==, !=, >, <, &&, ||)
-   Ép kiểu (toInt(), toString(), toDouble(),...)
-   Chuỗi & String Template ("Hello, $name")
-   Tự liệt kê thêm
+Repo luyện tập kiến thức Kotlin cơ bản từ syntax đến coroutines.
 
-2. Cấu trúc điều kiện và vòng lặp
-   If - Else
-   When (Thay thế switch-case trong Java)
-   For Loop (for (i in 1..10) { }) (có bao nhiêu loại for)
-   While & Do-While Loop
-   ...
+## 📚 Nội dung học tập
 
-3. Collection (Danh sách dữ liệu)
-   List (Danh sách)
-   Set (Tập hợp không trùng lặp)
-   Map (Dạng key-value)
-   Các hàm quan trọng trong Collection
-   map(), filter(), reduce(), forEach(), first(), last(), ...
-   Tự liệt kê thêm
+### 1. **Cú pháp cơ bản**
+- Variables & Constants (`var`, `val`)
+- Data Types: `Int`, `String`, `Boolean`, `Double`...
+- Operators & Type Casting
+- String Templates: `"Hello, $name"`
 
-4. Hàm & Extension Function
-   Hàm thông thường
-   Hàm một dòng
-   Default Parameter & Named Argument
-   Extension Function
+### 2. **Control Flow**
+- `if-else`, `when` statements
+- Loops: `for`, `while`, `do-while`
 
-5. Null Safety (An toàn với null)
-   Nullable (?) và Non-nullable
-   Elvis Operator (?:)
-   Safe Call (?.)
-   Not-null Assertion (!!)
+### 3. **Collections**
+- `List`, `Set`, `Map`
+- Functions: `map()`, `filter()`, `forEach()`...
 
-6. Lập trình hướng đối tượng (OOP) trong Kotlin
-   Class & Object
-   Constructor (Primary & Secondary)
-   Kế thừa (open class, override)
-   Interface & Abstract Class
-   Data Class
-   Singleton & Companion Object
+### 4. **Functions**
+- Regular & single-expression functions
+- Extension functions
+- Default parameters
 
-**Collections**
+### 5. **Null Safety**
+- Nullable types (`?`)
+- Safe calls (`?.`), Elvis operator (`?:`)
 
-The Kotlin Standard Library provides implementations for basic collection types: sets, lists, and
-maps. A pair of interfaces represent each collection type:
+### 6. **OOP**
+- Classes, Objects, Inheritance
+- Data classes, Interfaces
+- Companion objects
 
-A read-only interface that provides operations for accessing collection elements.
+### 7. **Functional Programming**
+- Lambda expressions: `{ x, y -> x + y }`
+- Higher-order functions
 
-A mutable interface that extends the corresponding read-only interface with write operations:
-adding, removing, and updating its elements.
+### 8. **Coroutines**
+- `suspend` functions
+- `launch`, `async`
+- Dispatchers & Scopes
 
+### 9. **Advanced Topics**
+- Sealed classes, Generics
+- Reflection, DSL
 
-<img width="960" height="576" alt="image" src="https://github.com/user-attachments/assets/c8297b4d-388d-4c47-876a-670acb0852af" />
+## Visual References
 
+**Collections Structure**
+<img width="960" height="576" alt="Collections" src="https://github.com/user-attachments/assets/c8297b4d-388d-4c47-876a-670acb0852af" />
 
 **Hash Table**
-Hash table is a data structure that maps keys to values using a special function called a hash
-function. Hash stores the data in an associative manner in an array where each data value has its
-own unique index.
 ![Hash Table](img.png)
 
-**Coroutine**
+**Coroutines**
 ![Coroutine](img_2.png)
-
-**Coroutines Running on Threads**
-![Coroutines Running on Threads](img_3.png)
+![Coroutines on Threads](img_3.png)
