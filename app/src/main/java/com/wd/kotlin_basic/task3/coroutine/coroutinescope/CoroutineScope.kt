@@ -1,5 +1,6 @@
 package com.wd.kotlin_basic.task3.coroutine.coroutinescope
 
+import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.coroutineScope
@@ -11,6 +12,7 @@ import kotlinx.coroutines.launch
  * CoroutineScope: dung de quan ly cac nhieu cac coroutine theo he thong phan cap. quan ly lifecycle cua cac coroutine con
  * Một coroutine cha sẽ chờ tất cả coroutine con hoàn thành trước khi nó kết thúc.
  * Nếu coroutine cha thất bại hoặc bị hủy, thì tất cả coroutine con của nó cũng sẽ bị hủy theo cách đệ quy.
+ * CoroutineScope (viewModelScope, lifecycleScope...) duoc gan voi lifecycle cua cac doi tuong khac.
  */
 suspend fun fetchData1(): List<String> {
     println("FetchData1...")
